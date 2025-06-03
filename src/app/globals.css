@@ -1,0 +1,130 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 97%; /* LIGHT_GREY */
+    --foreground: 229 34% 22%; /* NAVY_BLUE */
+
+    --card: 0 0% 98%; /* Açık Gri (#f9f9f9) */
+    --card-foreground: 229 34% 22%; /* NAVY_BLUE */
+
+    --popover: 0 0% 98%; /* Açık Gri (#f9f9f9) */
+    --popover-foreground: 229 34% 22%; /* NAVY_BLUE */
+
+    --primary: 258 95% 74%; /* Mor (#a87ffb) */
+    --primary-foreground: 0 0% 100%; /* White for contrast on new mor */
+
+    --secondary: 258 40% 78%; /* Lighter Lavender */
+    --secondary-foreground: 229 34% 22%; /* NAVY_BLUE for text on lighter lavender */
+
+    --muted: 0 0% 92%; /* Lighter Grey for subtle elements */
+    --muted-foreground: 229 20% 45%; /* Desaturated NAVY_BLUE */
+
+    --accent: 125 50% 70%; /* Yeşil (#8fd694) */
+    --accent-foreground: 0 0% 100%; /* White for contrast on new yeşil */
+
+    --destructive: 0 89% 70%; /* Kırmızı (#f76c6c) */
+    --destructive-foreground: 0 0% 100%; /* White */
+
+    --border: 0 0% 88%; /* Grey border */
+    --input: 0 0% 92%; /* Grey for input fields */
+    --ring: 258 95% 74%; /* Mor (#a87ffb) for rings */
+
+    --chart-1: 35 100% 64%;   /* Turuncu (#ffb347) for warning */
+    --chart-2: 258 95% 74%;  /* Mor (#a87ffb) - reflects new primary */
+    --chart-3: 258 50% 50%;  /* Darker Lavender */
+    --chart-4: 39 95% 70%;   /* Lighter Gold */
+    --chart-5: 229 34% 40%;  /* Mid Navy Blue */
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 95%;
+    --sidebar-foreground: 229 34% 22%;
+    --sidebar-primary: 258 50% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 90%;
+    --sidebar-accent-foreground: 229 34% 22%;
+    --sidebar-border: 0 0% 85%;
+    --sidebar-ring: 258 50% 60%;
+  }
+
+  .dark {
+    --background: 240 23% 15%; /* Dark Blue-Grey (#1e1e2f) */
+    --foreground: 0 0% 96%; /* Very Light Grey (#f4f4f4) */
+
+    --card: 229 30% 22%; /* Slightly lighter NAVY_BLUE for cards */
+    --card-foreground: 0 0% 96%; /* Very LIGHT_GREY (#f4f4f4) */
+
+    --popover: 229 30% 22%; /* Slightly lighter NAVY_BLUE */
+    --popover-foreground: 0 0% 96%; /* Very LIGHT_GREY (#f4f4f4) */
+
+    --primary: 258 95% 78%; /* Brighter Mor for dark mode (Neon-like) */
+    --primary-foreground: 0 0% 100%; /* White text on brighter mor */
+
+    --secondary: 258 50% 55%; /* Darker LAVENDER for secondary in dark mode */
+    --secondary-foreground: 0 0% 90%; /* LIGHT_GREY for text on secondary */
+
+    --muted: 229 25% 30%; /* Darker Grey */
+    --muted-foreground: 0 0% 70%; /* Lighter Grey for muted text */
+
+    --accent: 125 50% 75%; /* Brighter Yeşil for dark mode */
+    --accent-foreground: 0 0% 100%; /* White for contrast */
+
+    --destructive: 0 89% 75%; /* Brighter Kırmızı for dark mode */
+    --destructive-foreground: 0 0% 100%; /* White */
+
+    --border: 229 20% 35%; /* Grey border for dark mode */
+    --input: 229 20% 30%; /* Grey for input fields in dark mode */
+    --ring: 258 95% 78%; /* Mor for rings in dark mode (Neon-like) */
+
+    --chart-1: 35 100% 68%;   /* Turuncu (#ffb347) for warning (dark mode) */
+    --chart-2: 258 95% 78%;  /* Mor (#a87ffb) - reflects new primary (dark mode) */
+    --chart-3: 258 60% 80%;  /* Lighter Lavender (dark mode) */
+    --chart-4: 39 95% 45%;   /* Darker Gold (dark mode) */
+    --chart-5: 229 34% 60%;  /* Light Navy Blue (dark mode) */
+
+    --sidebar-background: 229 30% 15%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 258 60% 75%;
+    --sidebar-primary-foreground: 229 34% 10%;
+    --sidebar-accent: 229 30% 25%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 229 20% 30%;
+    --sidebar-ring: 258 60% 75%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom gradient for homepage */
+.bg-quiz-gradient {
+  background-image: linear-gradient(to right, #f3e7fe, #e3efff);
+}
+.dark .bg-quiz-gradient {
+  background-image: linear-gradient(to right, hsl(276, 80%, 15%), hsl(216, 80%, 18%)); /* Darker gradient for dark mode */
+}
+
+
+/* Custom gradient for subject selection page */
+.bg-subject-page-gradient {
+  background-image: linear-gradient(to bottom, #f3e7fe, #e3efff);
+}
+.dark .bg-subject-page-gradient {
+   background-image: linear-gradient(to bottom, hsl(276, 80%, 15%), hsl(216, 80%, 18%)); /* Darker gradient for dark mode */
+}
+
+@layer utilities {
+  .text-shadow-destructive-title {
+    /* A subtle dark red shadow for light text on a red background */
+    text-shadow: 1px 1px 2px rgba(100, 0, 0, 0.5);
+  }
+}

@@ -1,0 +1,31 @@
+
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Varsayılan olarak tüm okuma ve yazma işlemlerini engelle
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // 'quizzes' koleksiyonundaki belgeleri herkesin okumasına izin ver.
+    // Yazma işlemlerini engelle.
+    match /quizzes/{quizId} {
+      allow read: if true;
+      allow write: if false; // Quizzes koleksiyonuna genel yazma izni yok
+    }
+    
+    // 'quizzes' koleksiyonu altındaki herhangi bir alt koleksiyon ve belge için de okuma izni geçerli olsun.
+    match /quizzes/{quizId}/{document=**} {
+        allow read: if true;
+        allow write: if false;
+    }
+
+    // Kullanıcıların yalnızca kendi 'users' belgesini okumasına ve yazmasına izin ver.
+    // Bu işlem için kullanıcının giriş yapmış olması gerekir.
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+rules_version = '2';
+
+service firebase.storage {
+  match /b/{bucket}/o {
+    // Profile images:
+    // Allow authenticated users to write their own profile image.
+    // Allow anyone to read profile images.
+    match /profileImages/{userId}.jpg {
+      allow read;
+      allow write: if request.auth != null && request.auth.uid == userId
+                 && request.resource.size < 5 * 1024 * 1024 // Max 5MB
+                 && request.resource.contentType.matches('image/(jpeg|png|webp|gif)'); // Allow common image types
+    }
+
+    // Deny all other access by default
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}
