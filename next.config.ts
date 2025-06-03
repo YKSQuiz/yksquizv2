@@ -19,6 +19,12 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
+        hostname: 'i.imgyukle.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
         hostname: 'i.hizliresim.com',
         port: '',
         pathname: '/**',

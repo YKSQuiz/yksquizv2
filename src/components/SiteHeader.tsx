@@ -22,13 +22,13 @@ const SiteHeader = () => {
       <div className="container mx-auto px-4 py-3 sm:py-4 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 group">
           <Image
-            src="https://placehold.co/45x45.png"
-            alt="YKSQuiz Logo"
-            width={45}
-            height={45}
-            className="group-hover:scale-105 transition-transform duration-200"
-            data-ai-hint="brain logo"
-          />
+  src="/HeaderlogoBeyin.png"
+  alt="YKSQuiz Logo"
+  width={45}
+  height={45}
+  className="group-hover:scale-105 transition-transform duration-200"
+/>
+
           <h1 className="text-xl sm:text-2xl font-headline font-bold tracking-tight group-hover:text-amber-300 transition-colors">YKSQuiz</h1>
         </Link>
         <div className="flex items-center gap-2">
